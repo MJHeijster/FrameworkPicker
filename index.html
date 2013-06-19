@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Framework Picker for Android and Windows Phone</title>
+</head>
+<!--Images by Icojam http://www.iconarchive.com/show/blueberry-basic-icons-by-icojam.html -->
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/picker.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/jquery.reveal.js"></script>
+<script type="text/javascript" src="js/performance.results.js"></script>
+<body>
+    <link href="css/StyleSheet.css" rel="stylesheet" />
+    <div id="myModal" class="reveal-modal">
+        <h1 class="modalTitle">Performance</h1>
+        <div class="modalBody"></div>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="maindiv">
+        <form name="frameworkpickerform" onclick="checkCompatibility()">
+            <div id="title">
+                <h1>Framework Picker</h1>
+            </div>
+
+            <div id="languages">
+                <h2>Languages known</h2>
+                <input id="csharp" type="checkbox" checked="checked" /><label>C#</label><br />
+                <input id="cpp" type="checkbox" checked="checked" /><label>C++</label><br />
+                <input id="java" type="checkbox" checked="checked" /><label>Java</label><br />
+                <input id="html" type="checkbox" checked="checked" /><label>HTML+JavaScript+CSS</label><br />
+                <input id="rubyonrails" type="checkbox" /><label id="rubyonrailslabel">Ruby on Rails</label>
+
+            </div>
+
+            <div id="apis">
+                <h2>API's required</h2>
+                <input id="Accelerometer" type="checkbox" /><label>Accelerometer</label><br />
+                <input id="Bluetooth" type="checkbox" /><label>Bluetooth</label><br />
+                <input id="Camera" type="checkbox" /><label>Camera</label><br />
+                <input id="Compass" type="checkbox" /><label>Compass</label><br />
+                <input id="Geolocation" type="checkbox" /><label>Geolocation</label><br />
+                <input id="Vibration" type="checkbox" /><label>Vibration</label><br />
+                <input id="Alerts" type="checkbox" /><label>Alerts</label><br />
+                <input id="Calendar" type="checkbox" /><label>Calendar</label><br />
+                <input id="Contacts" type="checkbox" /><label>Contacts</label><br />
+                <input id="Media" type="checkbox" /><label>Media</label><br />
+                <input id="File" type="checkbox" /><label>File</label><br />
+                <input id="Notification" type="checkbox" /><label>Notification</label><br />
+                <input id="Push" type="checkbox" /><label>Push</label><br />
+
+            </div>
+
+            <div id="extras">
+                <h2>Extra's</h2>
+                <input id="freeonly" type="checkbox" /><label>Show free frameworks only</label><br />
+                <input id="opensourceonly" type="checkbox" /><label>Show open source frameworks only</label><br />
+                <input id="untested" type="checkbox" /><label>Show untested frameworks as well (these have been found unstable or not fit for purpose.</label><br />
+            </div>
+            <br />
+            <div id="notcompatible" style="visibility: hidden">
+                <h2 class="warning">No compatible frameworks found.</h2>
+
+            </div>
+            <div id="results">
+
+
+                <table id="resulttable" class="tablesorter">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Open source</th>
+                            <th>Free</th>
+                            <th>Free for</th>
+                            <th>Code</th>
+                            <th>Markup</th>
+                            <th class="description">Description</th>
+                            <th>Performance</th>
+                            <th>Look</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="jquery">
+                            <td>jQuery Mobile</td>
+
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>Everything</td>
+                            <td>JavaScript</td>
+                            <td>HMTL+CSS</td>
+                            <td class="description">To be combined with Cordova.</td>
+                            <td><a href="javascript:showPerformancejQuery()">
+                                <img src="img/performance.png" alt="1" /></a></td>
+                            <td><a href="javascript:showGraphicsjQuery()">
+                                <img src="img/star2.png" alt="1" /></a></td>
+                            <td><a href="http://jquerymobile.com/" target="_blank">
+                                <img src="img/download.png" /></a></td>
+                        </tr>
+                        <tr id="sencha">
+                            <td>Sencha</td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>Everything</td>
+                            <td>JavaScript</td>
+                            <td>HMTL+CSS</td>
+                            <td class="description">To be combined with Cordova.</td>
+                            <td><a href="javascript:showPerformanceSencha()">
+                                <img src="img/performance.png" alt="1" /></a></td>
+                            <td><a href="javascript:showGraphicsSencha()">
+                                <img src="img/star2.png" alt="1" /></a></td>
+                            <td><a href="http://www.sencha.com/products/touch/" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                        <tr id="mosync">
+                            <td>MoSync</td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>Everything</td>
+                            <td>JavaScript<br />
+                                C++</td>
+                            <td>HMTL+CSS<br />
+                                Code</td>
+                            <td class="description"></td>
+                            <td><a href="javascript:showPerformanceMoSync()">
+                                <img src="img/performance.png" alt="1" /></a></td>
+                            <td><a href="javascript:showGraphicsMoSync()">
+                                <img src="img/star2.png" alt="1" /></a></td>
+                            <td><a href="http://www.mosync.com/" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                        <tr id="xamarin">
+                            <td>Xamarin</td>
+                            <td>
+                                <img src="img/cross.png" alt="0" />
+                            </td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            
+                            <td>Small projects</td>
+                            <td>C#</td>
+                            <td>XML<br />
+                                XAML<br />
+                                Code</td>
+                            <td class="description">Free version is limited to 32k of compiled user code (IL), and which do not call out to native third party libraries (i.e., developers may not P/Invoke into C/C++/Objective-C/Java. </td>
+                            <td><a href="javascript:showPerformanceXamarin()">
+                                <img src="img/performance.png" alt="1" /></a></td>
+                            <td><a href="javascript:showGraphicsXamarin()">
+                                <img src="img/star1.png" alt="2" /></a></td>
+                            <td><a href="http://xamarin.com/" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                        <tr id="nativeandroid">
+                            <td>Native Android</td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>
+                                <img src="img/check.png" alt="1" />
+                            </td>
+                            <td>Everything</td>
+                            <td>Java</td>
+                            <td>XML</td>
+                            <td class="description"></td>
+                            <td><a href="javascript:showPerformanceNative()">
+                                <img src="img/performance.png" alt="1" /></a></td>
+                            <td><a href="javascript:showGraphicsNative()">
+                                <img src="img/star1.png" alt="2" /></a></td>
+                            <td><a href="http://developer.android.com/" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                        <tr id="nativewp">
+                            <td>Native Windows Phone</td>
+                            <td>
+                                <img src="img/cross.png" alt="0" />
+                            </td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>Everything</td>
+                            <td>C#</td>
+                            <td>XAML</td>
+                            <td class="description"></td>
+                            <td><a href="javascript:showPerformanceNative()">
+                                <img src="img/performance.png" alt="1" /></a></td>
+                            <td><a href="javascript:showGraphicsNative()">
+                                <img src="img/star1.png" alt="2" /></a></td>
+                            <td><a href="https://dev.windowsphone.com" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+
+                        <tr id="codenameone">
+                            <td>Codename One</td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>
+                                <img src="img/check.png" alt="1" />
+                            </td>
+                            <td>Everything, premium services available</td>
+                            <td>Java</td>
+                            <td>Code</td>
+                            <td class="description">Not debuggable on Windows Phone.</td>
+                            <td><a href="javascript:showPerformanceUnknown()">
+                                <img src="img/unknown.png" alt="-1" /></a></td>
+                            <td><a href="javascript:showGraphicsUnknown()">
+                                <img src="img/unknown.png" alt="-1" /></a></td>
+                            <td><a href="http://www.codenameone.com/" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                        <tr id="enyo">
+                            <td>Enyo</td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>
+                                <img src="img/check.png" alt="1" />
+                            </td>
+                            <td>Everything</td>
+                            <td>Javascript</td>
+                            <td>HTML+CSS</td>
+                            <td class="description">Limited amount of widgets available and unclear documentation.</td>
+                            <td><a href="javascript:showPerformanceUnknown()">
+                                <img src="img/unknown.png" alt="-1" /></a></td>
+                            <td><a href="javascript:showGraphicsEnyo()">
+                                <img src="img/star3.png" alt="0" /></a></td>
+                            <td><a href="http://enyojs.com/" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                        <tr id="marmalade">
+                            <td>Marmalade</td>
+                            <td>
+                                <img src="img/cross.png" alt="0" /></td>
+                            <td>
+                                <img src="img/cross.png" alt="0" />
+                            </td>
+                            <td>Nothing</td>
+                            <td>C++<br />
+                                JavaScript</td>
+                            <td>Code<br />
+                                HTML+CSS</td>
+                            <td class="description">Windows Phone in public beta for c++, private beta for html.</td>
+                            <td><a href="javascript:showPerformanceUnknown()">
+                                <img src="img/unknown.png" alt="-1" /></a></td>
+                            <td><a href="javascript:showGraphicsUnknown()">
+                                <img src="img/unknown.png" alt="-1" /></a></td>
+                            <td><a href="http://madewithmarmalade.com/" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                        <tr id="orubase">
+                            <td>Orubase</td>
+                            <td>
+                                <img src="img/cross.png" alt="0" /></td>
+                            <td>
+                                <img src="img/cross.png" alt="0" />
+                            </td>
+                            <td>Nothing</td>
+                            <td>ASP.NET</td>
+                            <td>HTML+CSS</td>
+                            <td class="description">Contained a lot of visual bugs.</td>
+                            <td><a href="javascript:showPerformanceUnknown()">
+                                <img src="img/unknown.png" alt="-1" /></a></td>
+                            <td><a href="javascript:showGraphicsOrubase()">
+                                <img src="img/star2.png" alt="1" /></a></td>
+                            <td><a href="http://orubase.com" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                        <tr id="rhomobile">
+                            <td>RhoMobile</td>
+                            <td>
+                                <img src="img/check.png" alt="1" /></td>
+                            <td>
+                                <img src="img/check.png" alt="1" />
+                            </td>
+                            <td>Everything
+                            </td>
+                            <td>Ruby on Rails</td>
+                            <td>HTML+CSS</td>
+                            <td class="description">Contained visual bugs.</td>
+                            <td><a href="javascript:showPerformanceUnknown()">
+                                <img src="img/unknown.png" alt="-1" /></a></td>
+                            <td><a href="javascript:showGraphicsRhoMobile()">
+                                <img src="img/star3.png" alt="0" /></a></td>
+                            <td><a href="http://www.motorolasolutions.com/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite" target="_blank">
+                                <img src="img/download.png" /></a></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div id="footer">
+                <p>©Jeroen Heijster 2013</p>
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
