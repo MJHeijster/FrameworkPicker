@@ -11,6 +11,10 @@ $(document).ready(function () {
         }
 
     });
+    //Hide the screenshot if the modal is shown.
+    $(this).bind('reveal:close', function () {
+        hideScreenshot();
+    });
 });
 
 //Hide the specified element

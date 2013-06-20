@@ -362,11 +362,11 @@ function setPerformanceTable(table) {
     });
 }
 function showScreenshot(image) {
-    $('#screenshot').empty();
-    $('#screenshot').append("<a href=\"javascript:hideScreenshot('" + image + "')\"><img src=\"img/" + image + ".png\"  style=\"max-width:520px\"></a>");
+    
+    $('#screenshot').html("<a href=\"javascript:hideScreenshot()\"><img src=\"img/" + image + ".png\"  style=\"max-width:520px\"></a>");
     slidedown('screenshot');
 }
-function hideScreenshot(image) {
+function hideScreenshot() {
     slideup('screenshot');
 }
 //Create the table with the specified data.
