@@ -76,9 +76,32 @@ a > img {
     margin: 0 auto;
     width: 650px;
 }
-table.dataTable tr.odd { background-color: #E2E4FF !important;  }
-table.dataTable tr.even { background-color: #E2E4FF !important; }
-td.sorting_1 { background-color: #E2E4FF !important; }
+table.dataTable tr.odd { background-color: #f5f5f5 !important;  }
+table.dataTable tr.even { background-color: #f5f5f5 !important; }
+td.sorting_1 { background-color: #f5f5f5 !important; }
+table.dataTable {
+    border: 1px solid #ddd;
+}
+table.dataTable th:not(:first-of-type) {
+    border-left: 1px solid #ddd;
+}
+table.dataTable td:not(:first-of-type) {
+    border-left: 1px solid #ddd;
+}
+    table.dataTable td {
+        border-top: 1px solid #ddd;
+    }
+table.dataTable th{
+    background-color: white !important;
+}
+table th, table td {
+    border-bottom: 0px !important;
+}
+table.dataTable .sorting_asc,table.dataTable .sorting_desc{
+    background-color:rgba(141, 192, 219, 0.25) !important;
+
+}
+
 /*	--------------------------------------------------
 	Reveal Modals
 	-------------------------------------------------- */

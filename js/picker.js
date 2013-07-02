@@ -267,6 +267,7 @@ function showGraphicsUnknown() {
     $('.modalBody').append("This framework was not tested.");
     $('#myModal').reveal();
 }
+
 //Show the popup for the jQuery graphics.
 function showGraphicsjQuery() {
     emptyPerformanceModal();
@@ -276,8 +277,10 @@ function showGraphicsjQuery() {
         "<div id=\"screenshot\" style=\"visibility:hidden\"></div>" +
     createjQueryGraphicsTable());
     $('#myModal').reveal();
+
+
     $('#androidtable').dataTable({
-        "aaSorting": [[1, "asc"]],
+        "aaSorting": [[ 1, "asc" ]],
         "bPaginate": false,
         "bLengthChange": false,
         "bFilter": true,
@@ -285,7 +288,7 @@ function showGraphicsjQuery() {
         "bInfo": false,
         "bAutoWidth": true,
         "bFilter": false,
-        "aoColumns": [{ "bSortable": true }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, ]
+        "aoColumns": [{ "bSortable": false }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }]
     });
     hideElement('screenshot');
 }
@@ -355,14 +358,14 @@ function emptyPerformanceModal() {
 function setPerformanceTable(table) {
     $('.modalBody').append(table);
     $('#myModal').reveal();
-    $("#performancetable").tablesorter({
-        sortList: [[0, 0]],
-
-        textExtraction: function (s) {
-            if ($(s).find('img').length == 0) return $(s).text();
-            return $(s).find('img').attr('alt');
-        }
-
+    $("#performancetable").dataTable({
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": false,
+        "bAutoWidth": true,
+        "bFilter": false,
     });
 }
 function showScreenshot(image) {
@@ -412,91 +415,91 @@ function createjQueryGraphicsTable() {
 "	</tr>\n" +
 "</thead><tbody>	<tr>\n" +
 "		<td>Dark</td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><a><img src=\"img/check.png\" alt=\"0\"></a></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Light</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Button</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Text field</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Checkbox</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Radio button</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Slider</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Toggle button</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Text</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Tabs</td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Drop down</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Screenshot</td>\n" +
@@ -508,16 +511,11 @@ function createjQueryGraphicsTable() {
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Download</td>\n" +
-"		<td><a href=\"https://github.com/enathu/jqmobile-android-holo-light-theme\" target=\"_blank\">\n" +
-"                                <img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
-"		<td><a href=\"https://github.com/jjoe64/jquery-mobile-android-theme\" target=\"_blank\">\n" +
-"                                <img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
-"		<td><a href=\"https://github.com/zeickan/Holo-Holo-Theme\" target=\"_blank\">\n" +
-"                                <img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
-"		<td><a href=\"http://vezquex.com/projects/holo-css/index.html\" target=\"_blank\">\n" +
-"                                <img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
-"		<td><a href=\"https://github.com/zmyaro/holo-web\" target=\"_blank\">\n" +
-"                                <img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
+"		<td><a href=\"https://github.com/enathu/jqmobile-android-holo-light-theme\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
+"		<td><a href=\"https://github.com/jjoe64/jquery-mobile-android-theme\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
+"		<td><a href=\"https://github.com/zeickan/Holo-Holo-Theme\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
+"		<td><a href=\"http://vezquex.com/projects/holo-css/index.html\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
+"		<td><a href=\"https://github.com/zmyaro/holo-web\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
 "	</tr>\n" +
 "</tbody></table>";
 }
