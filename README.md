@@ -6,7 +6,7 @@ An online version is available at: http://www.jeroenheijster.com/framework/
 
 Tested browsers
 ===============
-This web tool works in:
+This web tool works in
 -------------
  * Internet Explorer 9
  * Internet Explorer 10
@@ -16,6 +16,6 @@ This web tool works in:
  * Android 4.2 (Samsung Galaxy S IV I9505)
  * Windows Phone 8 (Nokia Lumia 820)
 
-This web tool has problems in:
+This web tool does not work in
 -------------
  * Internet Explorer 8
