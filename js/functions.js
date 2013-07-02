@@ -28,7 +28,7 @@ $(document).ready(function () {
         "bInfo": false,
         "bAutoWidth": true,
         "bFilter": false,
-        "aoColumns": [{ "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": false }]
+        "aoColumns": [{ "bSortable": true }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": false }]
     });
 
     //Hide the screenshot if the modal is closed.

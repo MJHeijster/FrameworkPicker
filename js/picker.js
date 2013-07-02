@@ -380,8 +380,8 @@ function hideScreenshot() {
 function createTable(androidStartup, androidLogin,androidCalc,winpStartup,winpLogin,winpCalc) {
     return "<table style=\"width: 100%\" id=\"performancetable\" class=\"tablesorter\">" +
     "<thead>" +
-        "<tr>" +
-            "<th>Name</th>" +
+    "<tr>" +
+    "<th>Name</th>" +
     "<th>Startup</th>" +
     "<th>HTTP POST login</th>" +
     "<th>Calculation</tdth>" +
@@ -419,7 +419,7 @@ function createjQueryGraphicsTable() {
 "		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
 "		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
 "		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><a><img src=\"img/check.png\" alt=\"0\"></a></td>\n" +
+"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Light</td>\n" +
