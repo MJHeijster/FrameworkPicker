@@ -276,12 +276,16 @@ function showGraphicsjQuery() {
         "<div id=\"screenshot\" style=\"visibility:hidden\"></div>" +
     createjQueryGraphicsTable());
     $('#myModal').reveal();
-    $("#androidtable").tablesorter({
-        textExtraction: function (s) {
-            if ($(s).find('img').length == 0) return $(s).text();
-            return $(s).find('img').attr('alt');
-        }
-
+    $('#androidtable').dataTable({
+        "aaSorting": [[1, "asc"]],
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": false,
+        "bAutoWidth": true,
+        "bFilter": false,
+        "aoColumns": [{ "bSortable": true }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, ]
     });
     hideElement('screenshot');
 }

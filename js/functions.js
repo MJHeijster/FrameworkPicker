@@ -2,16 +2,34 @@
 $(document).ready(function () {
     hideUntested();
     hideElement('notcompatible');
-    $("#resulttable").tablesorter({
-        sortList: [[0, 0]],
 
-        textExtraction: function (s) {
+    jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+        "alt-string-pre": function (s) {
             if ($(s).find('img').length == 0) return $(s).text();
             return $(s).find('img').attr('alt');
-        }
+        },
 
+        "alt-string-asc": function (a, b) {
+            return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+        },
+
+        "alt-string-desc": function (a, b) {
+            return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+        }
     });
-    //Hide the screenshot if the modal is shown.
+
+    $('#resulttable').dataTable({
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": false,
+        "bAutoWidth": true,
+        "bFilter": false,
+        "aoColumns": [{ "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": true, "sType": "alt-string" }, { "bSortable": false }]
+    });
+
+    //Hide the screenshot if the modal is closed.
     $(this).bind('reveal:close', function () {
         hideScreenshot();
     });
