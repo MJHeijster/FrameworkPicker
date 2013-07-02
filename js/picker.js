@@ -150,7 +150,8 @@ function checkCompatibilityRhoMobile() {
 function checkCompatibilityNative() {
 
     if (getChecked("java") == false ||
-        getChecked("csharp") == false) {
+        getChecked("csharp") == false  ||
+        getChecked("opensourceonly") == true) {
         hideElement('nativeandroid');
         hideElement('nativewp');
         return;
