@@ -40,14 +40,12 @@ function checkCompatibility() {
         slideup("notcompatible");
     }
 }
-
 //Only show free frameworks
 function showFreeOnly() {
     compatibleframeworks = compatibleframeworks - paidframeworks;
     hideElement('marmalade');
     hideElement('orubase');
 }
-
 //Only show open-source frameworks
 function showOpenSourceOnly() {
     compatibleframeworks = compatibleframeworks - closedsource;
@@ -56,7 +54,6 @@ function showOpenSourceOnly() {
     hideElement('marmalade');
     hideElement('orubase');
 }
-
 //Show untested frameworks
 function checkCompatibilityUntested() {
     showElement("rubyonrails");
@@ -67,7 +64,6 @@ function checkCompatibilityUntested() {
     checkCompatibilityOrubase();
     checkCompatibilityRhoMobile();
 }
-
 //Hide untested frameworks
 function hideUntested() {
     hideElement("codenameone");
@@ -78,7 +74,6 @@ function hideUntested() {
     hideElement("rubyonrails");
     hideElement("rubyonrailslabel");
 }
-
 //Check if Codename One is compatible
 function checkCompatibilityCodenameOne() {
 
@@ -92,7 +87,6 @@ function checkCompatibilityCodenameOne() {
     showElement('codenameone');
     compatibleframeworks++;
 }
-
 //Check if Enyo is compatible.
 function checkCompatibilityEnyo() {
 
@@ -103,7 +97,6 @@ function checkCompatibilityEnyo() {
     showElement('enyo');
     compatibleframeworks++;
 }
-
 //Check if marmalade is compatible
 function checkCompatibilityMarmalade() {
 
@@ -116,7 +109,6 @@ function checkCompatibilityMarmalade() {
     paidframeworks++;
     closedsource++;
 }
-
 //Check if Orubase is compatible
 function checkCompatibilityOrubase() {
 
@@ -133,7 +125,6 @@ function checkCompatibilityOrubase() {
     paidframeworks++;
     closedsource++;
 }
-
 //Check if RhoMobile is compatible
 function checkCompatibilityRhoMobile() {
 
@@ -145,7 +136,6 @@ function checkCompatibilityRhoMobile() {
     showElement('rhomobile');
     compatibleframeworks++;
 }
-
 //Check if native is an option.
 function checkCompatibilityNative() {
     if (getChecked("java") == false ||
@@ -160,7 +150,6 @@ function checkCompatibilityNative() {
     compatibleframeworks++;
     closedsource++;
 }
-
 //Check if Xamarin is compatible
 function checkCompatibilityXamarin() {
 
@@ -172,7 +161,6 @@ function checkCompatibilityXamarin() {
     compatibleframeworks++;
     closedsource++;
 }
-
 //Check if MoSync is compatible
 function checkCompatibilityMoSync() {
 
@@ -184,7 +172,6 @@ function checkCompatibilityMoSync() {
     showElement('mosync');
     compatibleframeworks++;
 }
-
 //Check if Cordova frameworks are compatible
 function checkCompatibilityCordova() {
     if (getChecked('html') == false ||
@@ -195,7 +182,6 @@ function checkCompatibilityCordova() {
 
     return false;
 }
-
 //Check if Sencha is compatible
 function checkCompatibilitySencha() {
 
@@ -206,7 +192,6 @@ function checkCompatibilitySencha() {
     showElement('sencha');
     compatibleframeworks++;
 }
-
 //Check if jQuery is compatible
 function checkCompatibilityjQuery() {
 
@@ -277,8 +262,6 @@ function showGraphicsjQuery() {
         "<div id=\"screenshot\" style=\"visibility:hidden\"></div>" +
     createjQueryGraphicsTable());
     $('#myModal').reveal();
-
-
     $('#androidtable').dataTable({
         "aaSorting": [[ 1, "asc" ]],
         "bPaginate": false,
@@ -368,11 +351,12 @@ function setPerformanceTable(table) {
         "bFilter": false,
     });
 }
+//Shows the screenshot
 function showScreenshot(image) {
-    
     $('#screenshot').html("<a href=\"javascript:hideScreenshot()\"><img src=\"img/" + image + ".png\"  style=\"max-width:520px\"></a>");
     slidedown('screenshot');
 }
+//Hides the screenshot
 function hideScreenshot() {
     slideup('screenshot');
 }
@@ -404,6 +388,7 @@ function createTable(androidStartup, androidLogin,androidCalc,winpStartup,winpLo
     "</table>";
 
 }
+//Creates the table to show for a jQuery graphics comparison
 function createjQueryGraphicsTable() {
     return "<table style=\"width: 100%\" id=\"androidtable\" class=\"tablesorter\"><thead>	<tr>\n" +
 "		<th class=\"header\">Name</th>\n" +
@@ -415,107 +400,84 @@ function createjQueryGraphicsTable() {
 "	</tr>\n" +
 "</thead><tbody>	<tr>\n" +
 "		<td>Dark</td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+        createCrossCheckTd(false,true,false,true,true) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Light</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+        createCrossCheckTd(true,true,true,true,true) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Button</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+        createCrossCheckTd(true,true,true,true,true) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Text field</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+        createCrossCheckTd(true,true,true,true,false) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Checkbox</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+        createCrossCheckTd(true,true,false,true,true) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Radio button</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+        createCrossCheckTd(true,true,false,true,true) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Slider</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+        createCrossCheckTd(true,true,true,false,false) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Toggle button</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+        createCrossCheckTd(true,true,true,true,false) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Text</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+        createCrossCheckTd(true, true, true, true, true) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Tabs</td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
+        createCrossCheckTd(false,false,true,true,false) +
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Drop down</td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/cross.png\" alt=\"1\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
-"		<td><img src=\"img/check.png\" alt=\"0\"></td>\n" +
+        createCrossCheckTd(true,true,false,true,true) + 
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Screenshot</td>\n" +
-"		<td><a href=\"javascript:showScreenshot(\'enathu\')\"><img src=\"img/screen.png\" alt=\"3\"></a></td>\n" +
-"		<td><a href=\"javascript:showScreenshot(\'jjoe64\')\"><img src=\"img/screen.png\" alt=\"3\"></a></td>\n" +
-"		<td><a href=\"javascript:showScreenshot(\'zeickan\')\"><img src=\"img/screen.png\" alt=\"3\"></a></td>\n" +
-"		<td><a href=\"javascript:showScreenshot(\'vezquex\')\"><img src=\"img/screen.png\" alt=\"3\"></a></td>\n" +
-"		<td><a href=\"javascript:showScreenshot(\'zmyaro\')\"><img src=\"img/screen.png\" alt=\"3\"></a></td>\n" +
+        createScreenshotTd("enathu", "jjoe64", "zeickan", "vezquex", "zmyaro") + 
 "	</tr>\n" +
 "	<tr>\n" +
 "		<td>Download</td>\n" +
-"		<td><a href=\"https://github.com/enathu/jqmobile-android-holo-light-theme\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
-"		<td><a href=\"https://github.com/jjoe64/jquery-mobile-android-theme\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
-"		<td><a href=\"https://github.com/zeickan/Holo-Holo-Theme\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
-"		<td><a href=\"http://vezquex.com/projects/holo-css/index.html\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
-"		<td><a href=\"https://github.com/zmyaro/holo-web\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n" +
+        createDownloadTd("https://github.com/enathu/jqmobile-android-holo-light-theme", "https://github.com/jjoe64/jquery-mobile-android-theme", "https://github.com/zeickan/Holo-Holo-Theme", "http://vezquex.com/projects/holo-css/index.html", "https://github.com/zmyaro/holo-web") +
 "	</tr>\n" +
 "</tbody></table>";
+}
+//Creates the cross and check image
+function createCrossCheckTd() {
+    var returnString = "";
+    for (var i = 0; i < arguments.length; i++) {
+        if (arguments[i] == true)
+            returnString += "<td><img src=\"img/check.png\" alt=\"0\"></td>\n";
+        else
+            returnString += "<td><img src=\"img/cross.png\" alt=\"1\"></td>\n";
+    }
+    return returnString;
+}
+//Creates the download links
+function createDownloadTd() {
+    var returnString = "";
+    for (var i = 0; i < arguments.length; i++) {
+        returnString += "		<td><a href=\"" + arguments[i] + "\" target=\"_blank\"><img src=\"img/download.png\" alt=\"4\"></a></td>\n";
+
+    }
+    return returnString;
+}
+//Creates the screenshot links
+function createScreenshotTd() {
+    var returnString = "";
+    for (var i = 0; i < arguments.length; i++) {
+        returnString += "		<td><a href=\"javascript:showScreenshot(\'" + arguments[i] + "\')\"><img src=\"img/screen.png\" alt=\"3\"></a></td>\n";
+
+    }
+    return returnString;
 }
