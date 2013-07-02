@@ -122,8 +122,8 @@ table.dataTable .sorting_asc,table.dataTable .sorting_desc{
     visibility: hidden;
     top: 100px;
     left: 50%;
-    margin-left: -300px;
-    width: 520px;
+    margin-left: -400px;
+    width: 700px;
     background: #eee url(../img/modal-gloss.png) no-repeat -200px -80px;
     position: absolute;
     z-index: 101;

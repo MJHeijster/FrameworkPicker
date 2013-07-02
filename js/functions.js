@@ -5,9 +5,7 @@ $(document).ready(function () {
 
     jQuery.extend(jQuery.fn.dataTableExt.oSort, {
         "alt-string-pre": function (s) {
-            console.log(s + " : " + s.match(/alt="(.*?)"/)[1].toLowerCase());
             if ($(s).find('img').length == 0) return s.match(/alt="(.*?)"/)[1].toLowerCase();
-            
             return $(s).find('img').attr('alt');
         },
 
