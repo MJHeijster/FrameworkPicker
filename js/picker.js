@@ -148,7 +148,6 @@ function checkCompatibilityRhoMobile() {
 
 //Check if native is an option.
 function checkCompatibilityNative() {
-
     if (getChecked("java") == false ||
         getChecked("csharp") == false  ||
         getChecked("opensourceonly") == true) {

@@ -2,6 +2,8 @@ FrameworkPicker
 ===============
 This web tool has been created to visualize the data from my paper.
 
+An online version is available at: http://www.jeroenheijster.com/framework/
+
 Tested browsers
 ===============
 This web tool works in:
