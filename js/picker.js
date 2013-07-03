@@ -257,8 +257,8 @@ function showGraphicsUnknown() {
 function showGraphicsjQuery() {
     emptyPerformanceModal();
     setModalTitleGraphics("jQuery");
-    $('.modalBody').append("The default jQuery mobile theme is styled like an iOS app. There are various themes available. For Windows Phone you can use: <a href=\"https://github.com/sgrebnov/jqmobile-wp8-theme\">jqmobile-wp8-theme</a>" +
-        "<br/> For Android you have multiple options: " +
+    $('.modalBody').append("The default jQuery mobile theme is styled like an iOS app. There are various themes available. <br /> <br />For Windows Phone you can use: <a href=\"https://github.com/sgrebnov/jqmobile-wp8-theme\">jqmobile-wp8-theme</a>" +
+        "<br /><br/> For Android you have multiple options: " +
         "<div id=\"screenshot\" style=\"visibility:hidden\"></div>" +
     createjQueryGraphicsTable());
     $('#myModal').reveal();
