@@ -31,7 +31,7 @@ function checkCompatibility() {
         showOpenSourceOnly();
 
     //If there are no compatible frameworks, show the message that no frameworks were found.
-    if (compatibleframeworks == 0) {
+    if (compatibleframeworks <= 0) {
         hideElement("resulttable");
         slidedown("notcompatible");
     }
@@ -147,6 +147,7 @@ function checkCompatibilityNative() {
     }
     showElement('nativeandroid');
     showElement('nativewp');
+    compatibleframeworks++;
     compatibleframeworks++;
     closedsource++;
 }
